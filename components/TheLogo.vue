@@ -1,11 +1,17 @@
 <template>
-  <img src="/images/logo/default.png" class="logo" alt="" />
+  <section class="logo">
+    <img src="/images/logo/default.png" alt="" />
+  </section>
 </template>
 
-<style>
+<style lang="scss">
 .logo {
   animation: 1s appear;
   max-width: 150px;
+  min-width: 120px;
+  img {
+    object-position: left center;
+  }
 }
 
 @keyframes appear {

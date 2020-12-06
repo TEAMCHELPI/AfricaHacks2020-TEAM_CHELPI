@@ -12,7 +12,7 @@
         </p>
       </template>
       <template v-slot:hero-button>
-        <button class="hero-button text-sm shake-animate">Order now</button>
+        <button class="hero-button shake-animate">Order now</button>
       </template>
     </the-hero>
 
@@ -30,7 +30,7 @@
           >
             <div class="hiw-card">
               <i
-                class="flaticon-039-online-shop-9 text-green-400 fi flex-auto my-auto text-5xl"
+                class="flaticon-039-online-shop-9 fi flex-auto my-auto text-5xl"
               ></i>
               <span
                 class="absolute bottom-0 mb-3 text-white text-xs px-4 py-1 rounded-full -mr-6 right-0 capitalize step-indicator"
@@ -48,7 +48,7 @@
           >
             <div class="hiw-card">
               <i
-                class="fi flaticon-073-placeholder text-green-400 flex-auto my-auto text-5xl"
+                class="fi flaticon-073-placeholder flex-auto my-auto text-5xl"
               ></i>
               <span
                 class="absolute bottom-0 mb-3 text-white text-xs px-4 py-1 rounded-full -mr-6 right-0 capitalize step-indicator"
@@ -64,7 +64,7 @@
           >
             <div class="hiw-card">
               <i
-                class="flaticon-067-delivery-truck-1 text-green-400 fi flex-auto m-auto text-5xl opacity-50"
+                class="flaticon-067-delivery-truck-1 fi flex-auto m-auto text-5xl opacity-50"
               ></i>
               <span
                 class="absolute bottom-0 mb-3 text-white text-xs px-4 py-1 rounded-full -mr-6 right-0 capitalize step-indicator"
@@ -92,7 +92,7 @@
           />
         </section>
         <section class="lg:w-2/3 flex items-center flex-col p-6">
-          <div class="mx-auto my-12 w-9/12">
+          <div class="mx-auto my-12 lg:w-9/12 md:w-10/12">
             <header class="my-8">
               <span
                 class="uppercase text-green-600 font-ight leading-none tracking-wider"
@@ -125,7 +125,7 @@
         class="flex flex-wrap justify-between mx-auto lg:py-24 py-12 relative"
       >
         <section class="lg:w-2/3 flex items-center flex-col p-6">
-          <div class="mx-auto my-12 w-9/12">
+          <div class="mx-auto my-12 lg:w-9/12 md:w-10/12">
             <header class="my-8">
               <span
                 class="uppercase text-green-600 leading-none tracking-wider"
@@ -199,9 +199,9 @@ export default {};
   border-width: 2px;
   border-color: theme("colors.green.400");
   @apply rounded-full;
-  @apply font-semibold;
   @apply tracking-wider;
   transition: all 0.75s ease-in;
+  @apply font-medium;
   &:hover {
     background-color: theme("colors.brand.primary");
   }
@@ -211,14 +211,22 @@ export default {};
   position: relative;
   width: 150px;
   height: 150px;
-  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 5px 13px #00000024;
   @apply flex;
   @apply items-center;
   @apply rounded-full;
   @apply justify-center;
+  @apply text-green-400;
+  transition: all 0.25s ease-in;
   .step-indicator {
     background: theme("colors.green.400");
+  }
+  &:hover {
+    @apply text-gray-800;
+    box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.15);
+    .step-indicator {
+      background: theme("colors.gray.800");
+    }
   }
 }
 
