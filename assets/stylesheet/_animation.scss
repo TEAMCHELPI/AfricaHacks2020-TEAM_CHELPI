@@ -1,0 +1,59 @@
+.shake-animate {
+    -webkit-transform        : translateZ(0);
+    animation-name           : 'shake-animate';
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state     : running;
+    animation-duration       : 3s;
+}
+
+
+@keyframes shake-animate {
+    0% {}
+
+    2% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        transform        : translateX(3px) rotate(2deg);
+    }
+
+    4% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform        : translateX(-3px) rotate(-2deg);
+    }
+
+    6% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform        : translateX(-3px) rotate(-2deg);
+
+    }
+
+    10% {
+        webkit-transform: translateX(2px) rotate(1deg);
+        transform       : translateX(2px) rotate(1deg);
+    }
+
+    12% {
+        -webkit-transform: translateX(-2px) rotate(-1deg);
+        transform        : translateX(-2px) rotate(-1deg);
+    }
+
+    14% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform        : translateX(2px) rotate(1deg);
+    }
+
+    16% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform        : translateX(2px) rotate(1deg);
+    }
+
+    18% {
+        -webkit-transform: translateX(1px) rotate(0);
+        transform        : translateX(1px) rotate(0);
+    }
+
+    20% {
+        -webkit-transform: translateX(-1px) rotate(0);
+        transform        : translateX(-1px) rotate(0);
+    }
+}
