@@ -1,0 +1,288 @@
+    /*
+    Socialicon icon font: Socialicon
+    Creation date: 17/08/2018 08:31
+    */
+
+    @font-face {
+      font-family: "Socialicon";
+      src        : url("/font/Socialicon.eot");
+      src        : url("/font/Socialicon.eot?#iefix") format("embedded-opentype"),
+        url("/font/Socialicon.woff") format("woff"),
+        url("/font/Socialicon.ttf") format("truetype"),
+        url("/font/Socialicon.svg#Socialicon") format("svg");
+      font-weight: normal;
+      font-style : normal;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      @font-face {
+        font-family: "Socialicon";
+        src        : url("/font/Socialicon.svg#Socialicon") format("svg");
+      }
+    }
+
+    .fi:before {
+      display                : inline-block;
+      font-family            : "Socialicon";
+      font-style             : normal;
+      font-weight            : normal;
+      font-variant           : normal;
+      line-height            : 1;
+      text-decoration        : inherit;
+      text-rendering         : optimizeLegibility;
+      text-transform         : none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing : antialiased;
+      font-smoothing         : antialiased;
+    }
+
+    .Socialicon-001-forrst:before {
+      content: "\f100";
+    }
+
+    .Socialicon-002-myspace:before {
+      content: "\f101";
+    }
+
+    .Socialicon-003-picasa:before {
+      content: "\f102";
+    }
+
+    .Socialicon-004-soundcloud:before {
+      content: "\f103";
+    }
+
+    .Socialicon-005-blogger:before {
+      content: "\f104";
+    }
+
+    .Socialicon-006-tumblr:before {
+      content: "\f105";
+    }
+
+    .Socialicon-007-vine:before {
+      content: "\f106";
+    }
+
+    .Socialicon-008-slideshare:before {
+      content: "\f107";
+    }
+
+    .Socialicon-009-xing:before {
+      content: "\f108";
+    }
+
+    .Socialicon-010-swarm:before {
+      content: "\f109";
+    }
+
+    .Socialicon-011-youtube:before {
+      content: "\f10a";
+    }
+
+    .Socialicon-012-google-drive:before {
+      content: "\f10b";
+    }
+
+    .Socialicon-013-skype:before {
+      content: "\f10c";
+    }
+
+    .Socialicon-014-envato:before {
+      content: "\f10d";
+    }
+
+    .Socialicon-015-team-viewer:before {
+      content: "\f10e";
+    }
+
+    .Socialicon-016-twitch:before {
+      content: "\f10f";
+    }
+
+    .Socialicon-017-dropbox:before {
+      content: "\f110";
+    }
+
+    .Socialicon-018-yelp:before {
+      content: "\f111";
+    }
+
+    .Socialicon-019-digg:before {
+      content: "\f112";
+    }
+
+    .Socialicon-020-vk:before {
+      content: "\f113";
+    }
+
+    .Socialicon-021-facebook:before {
+      content: "\f114";
+    }
+
+    .Socialicon-022-dribbble:before {
+      content: "\f115";
+    }
+
+    .Socialicon-023-rss:before {
+      content: "\f116";
+    }
+
+    .Socialicon-024-delicious:before {
+      content: "\f117";
+    }
+
+    .Socialicon-025-instagram:before {
+      content: "\f118";
+    }
+
+    .Socialicon-026-hangout:before {
+      content: "\f119";
+    }
+
+    .Socialicon-027-vimeo:before {
+      content: "\f11a";
+    }
+
+    .Socialicon-028-lastfm:before {
+      content: "\f11b";
+    }
+
+    .Socialicon-029-telegram:before {
+      content: "\f11c";
+    }
+
+    .Socialicon-030-periscope:before {
+      content: "\f11d";
+    }
+
+    .Socialicon-031-flickr:before {
+      content: "\f11e";
+    }
+
+    .Socialicon-032-wattpad:before {
+      content: "\f11f";
+    }
+
+    .Socialicon-033-yahoo:before {
+      content: "\f120";
+    }
+
+    .Socialicon-034-snapchat:before {
+      content: "\f121";
+    }
+
+    .Socialicon-035-whatsapp:before {
+      content: "\f122";
+    }
+
+    .Socialicon-036-foursquare:before {
+      content: "\f123";
+    }
+
+    .Socialicon-037-path:before {
+      content: "\f124";
+    }
+
+    .Socialicon-038-github:before {
+      content: "\f125";
+    }
+
+    .Socialicon-039-deviantart:before {
+      content: "\f126";
+    }
+
+    .Socialicon-040-html:before {
+      content: "\f127";
+    }
+
+    .Socialicon-041-pinterest:before {
+      content: "\f128";
+    }
+
+    .Socialicon-042-reddit:before {
+      content: "\f129";
+    }
+
+    .Socialicon-043-twitter:before {
+      content: "\f12a";
+    }
+
+    .Socialicon-044-kickstarter:before {
+      content: "\f12b";
+    }
+
+    .Socialicon-045-linkedin:before {
+      content: "\f12c";
+    }
+
+    .Socialicon-046-spotify:before {
+      content: "\f12d";
+    }
+
+    .Socialicon-047-google-plus:before {
+      content: "\f12e";
+    }
+
+    .Socialicon-048-behance:before {
+      content: "\f12f";
+    }
+
+    .Socialicon-049-stumbleupon:before {
+      content: "\f130";
+    }
+
+    .Socialicon-050-bebo:before {
+      content: "\f131";
+    }
+
+    $font-Socialicon-001-forrst      : "\f100";
+    $font-Socialicon-002-myspace     : "\f101";
+    $font-Socialicon-003-picasa      : "\f102";
+    $font-Socialicon-004-soundcloud  : "\f103";
+    $font-Socialicon-005-blogger     : "\f104";
+    $font-Socialicon-006-tumblr      : "\f105";
+    $font-Socialicon-007-vine        : "\f106";
+    $font-Socialicon-008-slideshare  : "\f107";
+    $font-Socialicon-009-xing        : "\f108";
+    $font-Socialicon-010-swarm       : "\f109";
+    $font-Socialicon-011-youtube     : "\f10a";
+    $font-Socialicon-012-google-drive: "\f10b";
+    $font-Socialicon-013-skype       : "\f10c";
+    $font-Socialicon-014-envato      : "\f10d";
+    $font-Socialicon-015-team-viewer : "\f10e";
+    $font-Socialicon-016-twitch      : "\f10f";
+    $font-Socialicon-017-dropbox     : "\f110";
+    $font-Socialicon-018-yelp        : "\f111";
+    $font-Socialicon-019-digg        : "\f112";
+    $font-Socialicon-020-vk          : "\f113";
+    $font-Socialicon-021-facebook    : "\f114";
+    $font-Socialicon-022-dribbble    : "\f115";
+    $font-Socialicon-023-rss         : "\f116";
+    $font-Socialicon-024-delicious   : "\f117";
+    $font-Socialicon-025-instagram   : "\f118";
+    $font-Socialicon-026-hangout     : "\f119";
+    $font-Socialicon-027-vimeo       : "\f11a";
+    $font-Socialicon-028-lastfm      : "\f11b";
+    $font-Socialicon-029-telegram    : "\f11c";
+    $font-Socialicon-030-periscope   : "\f11d";
+    $font-Socialicon-031-flickr      : "\f11e";
+    $font-Socialicon-032-wattpad     : "\f11f";
+    $font-Socialicon-033-yahoo       : "\f120";
+    $font-Socialicon-034-snapchat    : "\f121";
+    $font-Socialicon-035-whatsapp    : "\f122";
+    $font-Socialicon-036-foursquare  : "\f123";
+    $font-Socialicon-037-path        : "\f124";
+    $font-Socialicon-038-github      : "\f125";
+    $font-Socialicon-039-deviantart  : "\f126";
+    $font-Socialicon-040-html        : "\f127";
+    $font-Socialicon-041-pinterest   : "\f128";
+    $font-Socialicon-042-reddit      : "\f129";
+    $font-Socialicon-043-twitter     : "\f12a";
+    $font-Socialicon-044-kickstarter : "\f12b";
+    $font-Socialicon-045-linkedin    : "\f12c";
+    $font-Socialicon-046-spotify     : "\f12d";
+    $font-Socialicon-047-google-plus : "\f12e";
+    $font-Socialicon-048-behance     : "\f12f";
+    $font-Socialicon-049-stumbleupon : "\f130";
+    $font-Socialicon-050-bebo        : "\f131";

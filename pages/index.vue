@@ -24,9 +24,9 @@
             How it works
           </h2>
         </header>
-        <ul class="flex justify-between items-center flex-wrap">
+        <ul class="flex justify-between items-center flex-wrap relative hiw">
           <li
-            class="flex flex-col lg:w-1/3 m-auto items-center p-6 text-center"
+            class="flex flex-col lg:w-1/3 m-auto items-center p-6 text-center hiw-stage"
           >
             <div class="hiw-card">
               <i
@@ -44,7 +44,7 @@
           </li>
 
           <li
-            class="flex flex-col lg:w-1/3 m-auto items-center p-6 text-center"
+            class="flex flex-col hiw-stage lg:w-1/3 flex-auto items-center p-6 text-center"
           >
             <div class="hiw-card">
               <i
@@ -60,7 +60,7 @@
             </p>
           </li>
           <li
-            class="flex flex-col lg:w-1/3 m-auto items-center p-6 text-center"
+            class="flex hiw-stage flex-col lg:w-1/3 m-auto items-center p-6 text-center"
           >
             <div class="hiw-card">
               <i
@@ -206,26 +206,54 @@ export default {};
     background-color: theme("colors.brand.primary");
   }
 }
+.hiw {
+  .hiw-stage {
+    position: relative;
 
-.hiw-card {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  box-shadow: 0px 5px 13px #00000024;
-  @apply flex;
-  @apply items-center;
-  @apply rounded-full;
-  @apply justify-center;
-  @apply text-green-400;
-  transition: all 0.25s ease-in;
-  .step-indicator {
-    background: theme("colors.green.400");
+    &:not(:last-of-type):after {
+      content: "";
+      position: relative;
+      border-left-width: 6px;
+      border-left-color: theme("colors.green.400");
+      border-left-style: dotted;
+      height: 100px;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+
+      @media screen and (min-width: 500px) {
+        height: 0;
+        width: 45%;
+        border-bottom-width: 6px;
+        border-bottom-color: theme("colors.green.400");
+        border-bottom-style: dotted;
+        position: absolute;
+        right: 0;
+        margin-top: 25%;
+        margin-right: -25%;
+      }
+    }
   }
-  &:hover {
-    @apply text-gray-800;
-    box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.15);
+  .hiw-card {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 5px 13px #00000024;
+    @apply flex;
+    @apply items-center;
+    @apply rounded-full;
+    @apply justify-center;
+    @apply text-green-400;
+    transition: all 0.25s ease-in;
     .step-indicator {
-      background: theme("colors.gray.800");
+      background: theme("colors.green.400");
+    }
+    &:hover {
+      @apply text-gray-800;
+      box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.15);
+      .step-indicator {
+        background: theme("colors.gray.800");
+      }
     }
   }
 }

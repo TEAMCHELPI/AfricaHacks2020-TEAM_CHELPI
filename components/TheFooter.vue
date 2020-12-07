@@ -16,10 +16,18 @@
                   <span>Nigeria, Rivers state, Port Harcourt</span>
                 </li>
                 <li class="mb-3">
-                  <span><strong>Telephone</strong> +234 812 006 1708</span>
+                  <span
+                    ><strong>Telephone</strong
+                    ><tel> +234 812 006 1708</tel></span
+                  >
                 </li>
                 <li class="mb-3">
-                  <span><strong>E-mail</strong>: chelpiinc@gmail.com</span>
+                  <span
+                    ><strong>E-mail</strong>:
+                    <a href="mailto:chelpiinc@gmail.com"
+                      >chelpiinc@gmail.com</a
+                    ></span
+                  >
                 </li>
               </ul>
             </section>
@@ -28,10 +36,10 @@
                 <h3 class="font-head text-xl">Meals</h3>
               </header>
               <ul class="my-4 block font-light">
-                <li class="mb-3">Top Chefs</li>
-                <li class="mb-3">Top Meals</li>
-                <li class="mb-3">Explore Meals</li>
-                <li class="mb-3">Contact us</li>
+                <li class="mb-3"><a href="#">Top Chefs</a></li>
+                <li class="mb-3"><a href="#">Top Meals</a></li>
+                <li class="mb-3"><a href="#">Explore Meals</a></li>
+                <li class="mb-3"><a href="#">Contact us</a></li>
               </ul>
             </section>
           </section>
@@ -39,25 +47,33 @@
         <section class="p-3">
           <h3 class="font-head text-xl">Follow Us</h3>
           <ul class="social-icons flex items-center space-x-3 my-3">
-            <li
-              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 relative"
-            >
-              <span>f</span>
+            <li class="text-gray-400 relative">
+              <a
+                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                href="#"
+                ><span></span
+              ></a>
             </li>
-            <li
-              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 relative"
-            >
-              <span>f</span>
+            <li class="text-gray-400 relative">
+              <a
+                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                href="#"
+                ><span></span
+              ></a>
             </li>
-            <li
-              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 relative"
-            >
-              <span>f</span>
+            <li class="text-gray-400 relative">
+              <a
+                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                href="#"
+                ><span></span
+              ></a>
             </li>
-            <li
-              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 relative"
-            >
-              <span>f</span>
+            <li class="text-gray-400 relative">
+              <a
+                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                href="#"
+                ><span></span
+              ></a>
             </li>
           </ul>
         </section>
