@@ -18,7 +18,7 @@
                 <li class="mb-3">
                   <span
                     ><strong>Telephone</strong
-                    ><tel> +234 812 006 1708</tel></span
+                    ><span> +234 812 006 1708</span></span
                   >
                 </li>
                 <li class="mb-3">

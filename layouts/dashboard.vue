@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <Nuxt />
-    <!--  The Footer-->
-    <the-footer />
-
+  <main>
+    <the-sidebar/>
+    <section class="relative z-10">
+      <section class="p-4 absolute z-20 left-0 w-full top-0">
+        <the-navigation-bar/>
+      </section>
+      <nuxt/>
+    </section>
     <!--    Modal-->
     <the-modal ref="modal">
       <template #title>{{ modal.title }}</template>
@@ -16,32 +19,31 @@
         </component>
       </template>
     </the-modal>
-  </div>
+  </main>
 </template>
-
 
 <script>
 	import SignUp from "~/components/SignUp.vue";
 	import TheModal from "~/components/TheModal";
-
+	import TheSidebar from "~/components/TheSidebar";
 	export default {
-  	name: 'DefaultLayout',
-		components: { SignUp, TheModal },
-		mounted(){
+		name: "DashboardLayout",
+		components: { TheSidebar, SignUp, TheModal },
+    mounted(){
 			this.$eventBus.$on('pickMeal', this.pickMeal)
-		},
-		destroyed(){
+    },
+    destroyed(){
 			this.$eventBus.$off();
-		},
-		data(){
+    },
+    data(){
 			return {
 				modal: {
 					component: "",
 					payload: "",
 					title: "",
 				},
-			}
-		},
+      }
+    },
 		methods: {
 			pickMeal() {
 				this.revealModal( "sign-up", "Sign up" );
@@ -57,5 +59,9 @@
 				}
 			},
 		},
-  }
+	}
 </script>
+
+<style scoped>
+
+</style>

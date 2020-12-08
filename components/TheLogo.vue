@@ -1,6 +1,8 @@
 <template>
   <section class="logo">
-    <img src="/images/logo/default.png" alt="" />
+    <n-link :to="{name: 'index'}">
+      <img src="/images/logo/default.png" alt="" />
+    </n-link>
   </section>
 </template>
 

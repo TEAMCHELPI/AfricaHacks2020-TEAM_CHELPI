@@ -33,6 +33,7 @@
             <span class="w-4 h-4 mr-3 block bg-gray-300"></span>
 
             <input
+              id="schedule-delivery"
               placeholder="Schedule Delivery"
               name="schedule-delivery"
               class="form-input border-none flex-auto m-0 focus:shadow-none"
@@ -41,7 +42,7 @@
           </label>
 
           <label class="flex items-center flex-auto" for="search-button">
-            <button class="p-3 text-white font-medium px-8 bg-brand-primary">
+            <button id="search-button" class="p-3 text-white font-medium px-8 bg-brand-primary">
               Find Meals
             </button>
           </label>
@@ -60,50 +61,52 @@
           <span class="font-head lg:text-xl"> Meals picked</span>
           <span
             class="leading-none px-4 pb-1 rounded-full text-xs bg-gray-500 bg-opacity-25"
-            >4</span
+          >4</span
           >
         </section>
       </header>
 
-      <section class="grid-container mb-12">
-        <section class="meal-grid-item" v-for="n in 30" :key="n">
-          <div
-            class="meal-card"
-            :style="{ backgroundImage: `url('/images/landing/banner.jpg')` }"
-          >
-            <section class="metadata m-auto h-full flex flex-col w-full">
-              <section class="flex z-10 justify-between flex-wrap p-4">
-                <div class="meal-rating">
-                  <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
-                  <span class="rating ml-2 px-2 bg-orange-600 rounded-full"
-                    >4.5</span
-                  >
-                </div>
-                <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
-              </section>
-              <section class="flex z-10 justify-between w-full mt-auto p-4">
-                <div class="flex space-x-2 items-center">
-                  <span class="w-8 h-8 block bg-gray-200 rounded-full"></span>
-                  <p class="font-head text-white font-medium">Name</p>
-                </div>
+      <!--      Grid-->
+      <meal-mansonry-grid></meal-mansonry-grid>
+      <!-- Chefs near by -->
+      <section>
+        <header class="flex flex-wrap justify-between items-center w-full py-4">
+          <section class="flex flex-auto mr-auto items-center space-x-3">
+            <span class="font-head lg:text-xl text-right text-gray-900"
+            >Chefs Nearby</span
+            >
+            <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
+          </section>
+          <section class="flex items-center space-x-2">
+            <button
+              class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-600 text-white"
+            >
+              Previous
+            </button>
+            <button
+              class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-600 text-white"
+            >
+              Next
+            </button>
+          </section>
+        </header>
 
-                <button class="p-2 px-6 bg-white rounded">Pick</button>
-              </section>
-            </section>
-            <section
-              class="availability absolute top-0 left-0 h-full w-full justify-center items-center flex transition-all duration-500 bg-green-900 bg-opacity-75 ease-in-out hover:opacity-100 opacity-0 text-white font-medium"
-            >
-              Open at {2:30pm}
-            </section>
-          </div>
-          <div class="flex py-3 items-baseline justify-between">
-            <span
-              class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500"
-              >Sandwich</span
-            ><span
-              class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500"
-              >$0.1</span
-            >
+        <section class="py-6">
+          <div
+            class="swiper directive"
+            v-swiper="chefsNearbySwiperOption"
+            :cleanup-styles-on-destroy="false"
+          >
+            <div class="swiper-wrapper">
+              <div
+                class="swiper-slide"
+                :key="uuid()"
+                v-for="chef in chefsNearby"
+              >
+                <meal-card/>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
         </section>
       </section>
@@ -112,72 +115,26 @@
 </template>
 
 <script>
-import TheNavigationBar from "~/components/TheNavigationBar.vue";
-export default {
-  components: { TheNavigationBar },
-  name: "Explorer",
-};
+	import MealCard from "~/components/MealCard.vue";
+	import TheNavigationBar from "~/components/TheNavigationBar.vue";
+	import MealMansonryGrid from "../components/MealMansonryGrid";
+
+	export default {
+		components: { MealMansonryGrid, TheNavigationBar, MealCard },
+		name: "Explorer",
+		data() {
+			return {
+				chefsNearby: [ {}, {}, {}, {}, {} ],
+				chefsNearbySwiperOption: {
+					spaceBetween: 10,
+					mousewheel: true,
+					slidesPerView: 3,
+				},
+
+			};
+		},
+	};
 </script>
-<style lang="scss" >
-.meal-grid-item {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  align-content: stretch;
-  width: 100%;
-  height: 100%;
+<style lang="scss">
 
-  .meal-card {
-    min-height: 275px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    z-index: 2;
-    margin: auto;
-    background: theme("colors.gray.800");
-    position: relative;
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    transition: all 0.75s ease-in-out;
-    &:hover {
-      background-size: auto 120%;
-    }
-    // &:before {
-    //   content: "";
-    //   position: absolute;
-    //   background: rgba(119, 47, 47, 0.248);
-    //   width: 100%;
-    //   height: 100%;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: 0;
-    // }
-    .meal-rating {
-      margin-block-start: 0;
-      margin-block-end: 0;
-      display: flex;
-      align-items: center;
-      text-align: left;
-      font-size: 12px;
-      letter-spacing: 0px;
-      color: #ffffff;
-    }
-  }
-
-  &:nth-child(odd) {
-    grid-row-end: span 2;
-  }
-  &:nth-child(even) {
-    grid-row-end: span 3;
-  }
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(275px, 1fr));
-  grid-gap: 10px;
-  grid-auto-rows: minmax(180px, auto);
-  grid-auto-flow: dense;
-}
 </style>
