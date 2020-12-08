@@ -110,11 +110,12 @@
               creating a virtual restaurant at no cost. Sell meals better,
               faster and easier. Sign up to get notified as soon as we launch
             </p>
-            <button
+            <n-link
+              :to="{ name: 'explorer' }"
               class="bg-green-500 hover:bg-brand-primary text-white p-3 px-12 lg:w-auto w-full md:w-auto rounded-full"
             >
               Explore
-            </button>
+            </n-link>
           </div>
         </section>
       </div>
@@ -143,11 +144,12 @@
               Looking to earn some extra income? Become one of our delivery
               agent and work at your own schedule
             </p>
-            <button
+            <n-link
+              :to="{ name: 'explorer' }"
               class="bg-green-500 hover:bg-brand-primary text-white p-3 px-12 lg:w-auto w-full md:w-auto rounded-full"
             >
               Explore
-            </button>
+            </n-link>
           </div>
         </section>
         <section class="flex-auto relative">
