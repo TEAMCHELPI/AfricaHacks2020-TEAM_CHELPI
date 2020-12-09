@@ -3,7 +3,7 @@
     <the-sidebar/>
     <section class="relative z-10">
       <section class="p-4 absolute z-20 left-0 w-full top-0">
-        <the-navigation-bar/>
+        <the-navigation-bar :sidebar="auth"/>
       </section>
       <nuxt/>
     </section>
@@ -34,6 +34,11 @@
     },
     destroyed(){
 			this.$eventBus.$off();
+    },
+    computed:{
+			auth(){
+				return this.$store.getters['user/authenticated']
+      }
     },
     data(){
 			return {

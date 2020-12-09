@@ -3,9 +3,10 @@
     <section class="dashboard-hero flex flex-col justify-end relative min-h-screen bg-gray-900"
              :style="{backgroundImage: `url(${banner})`}">
       <span class="bg-black z-0 opacity-75 absolute top-0 left-0 w-full h-full"></span>
-      <section class="container mx-auto mt-auto flex space-x-6 z-10 mb-12">
+      <section class="container px-3 mx-auto mt-auto flex space-x-6 z-10 mb-12">
         <section>
-          <span class="w-20 h-20 bg-white rounded-full block"></span>
+          <span class="user-avatar w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full block"
+                :style="{backgroundImage: `url(${avatar})`}"></span>
         </section>
         <section>
           <header class="mb-2"><h1 class="text-2xl text-white font-head font-medium">
@@ -33,13 +34,18 @@
 
 	export default {
 		name: "index",
+		layout: 'dashboard',
 		components: { MealMansonryGrid },
 		data() {
 			return {
 				banner: '/images/sample/meals/meal005.jpg'
 			}
 		},
-		layout: 'dashboard',
+		computed: {
+			avatar() {
+				return '/images/sample/chefs/chef002.jpg'
+			},
+		},
 		methods: {
 			openLeftSidebar() {
 				this.$store.dispatch( "openLeftSidebar" );

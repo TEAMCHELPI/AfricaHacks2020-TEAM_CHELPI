@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto flex justify-between bg-transparent">
       <section class="flex items-center">
-        <button @click.stop="openSidebar" :class="['block w-12 h-full', {'hamburger-close': leftSidebar}]">
+        <button v-if="sidebar" @click.stop="openSidebar" :class="['block w-12 h-full', {'hamburger-close': leftSidebar}]">
           <span class="w-8 h-1 bg-white block mb-2  rounded-full"></span>
           <span class="w-8 h-1 bg-white block mb-2  rounded-full"></span>
           <span class="w-8 h-1 bg-white block mb-2  rounded-full"></span>
@@ -11,7 +11,7 @@
       </section>
       <div class="flex space-x-3">
         <!-- Menu buttons -->
-        <section class="hidden lg:block md:block" v-show="buttons">
+        <section v-if="false" class="hidden lg:block md:block" v-show="buttons">
           <n-link :to="{name: 'signup'}"
                   class="bg-green-400 block hover:bg-brand-primary transition-all duration-75 px-8 p-2 border-2 border-brand-primary rounded-full font-bold text-white tracking-wider"
           >
@@ -19,14 +19,12 @@
           </n-link>
         </section>
 
-        <div class="flex items-center">
-          <!-- User avatar -->
-          <div class="user-avatar w-12 h-12 bg-white shadow-outline rounded-full relative"
-        :style="{backgroundImage: `url(${avatar})`}">
-            <span class="absolute w-3 h-3 rounded-full right-0 top-0 mt-2 -mr-1 bg-green-500"></span>
-          </div>
-          <!-- End user avatar-->
+        <!-- User avatar -->
+        <div v-else class="user-avatar w-10 h-10 bg-white shadow-outline rounded-full relative"
+             :style="{backgroundImage: `url(${avatar})`}">
+          <span class="absolute w-3 h-3 rounded-full right-0 top-0 mt-2 -mr-1 bg-green-500"></span>
         </div>
+        <!-- End user avatar-->
       </div>
     </div>
   </div>
@@ -40,7 +38,12 @@
 				type: Boolean,
 				default: true,
 				required: false
-			}
+			},
+      sidebar: {
+				typ: Boolean,
+        default: false,
+        required: false
+      }
 		},
 		computed: {
 			avatar(){
