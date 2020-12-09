@@ -9,8 +9,8 @@
         </button>
         <the-logo/>
       </section>
-      <div>
-        <!-- Menu button -->
+      <div class="flex space-x-3">
+        <!-- Menu buttons -->
         <section class="hidden lg:block md:block" v-show="buttons">
           <n-link :to="{name: 'signup'}"
                   class="bg-green-400 block hover:bg-brand-primary transition-all duration-75 px-8 p-2 border-2 border-brand-primary rounded-full font-bold text-white tracking-wider"
@@ -19,7 +19,14 @@
           </n-link>
         </section>
 
-        <div class=""></div>
+        <div class="flex items-center">
+          <!-- User avatar -->
+          <div class="user-avatar w-12 h-12 bg-white shadow-outline rounded-full relative"
+        :style="{backgroundImage: `url(${avatar})`}">
+            <span class="absolute w-3 h-3 rounded-full right-0 top-0 mt-2 -mr-1 bg-green-500"></span>
+          </div>
+          <!-- End user avatar-->
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +43,9 @@
 			}
 		},
 		computed: {
+			avatar(){
+				return '/images/sample/chefs/chef002.jpg'
+      },
 			leftSidebar() {
 				return this.$store.getters["leftSidebar"];
 			},
