@@ -1,7 +1,8 @@
 <template>
-  <section class="grid-container my-12">
-    <div class="meal-grid-item" v-for="n in 30" :key="uuid()">
-      <meal-card/>
+  <section v-if="entries" class="grid-container my-6">
+    <div class="meal-grid-item" v-for="entry of entries"
+    :key="entry.id">
+      <meal-card :entry="entry"/>
     </div>
   </section>
 </template>
@@ -12,6 +13,13 @@
 	export default {
 		name: "MealMansonryGrid",
 		components: { MealCard},
+    props:{
+      entries: {
+        default: ()=>[],
+        required: true,
+        type: Array
+      }
+    },
 		data(){
 			return {
 				modal: {
@@ -35,11 +43,11 @@
   align-content: stretch;
   width: 100%;
   height: 100%;
-  
+
   &:nth-child(odd) {
     grid-row-end: span 2;
   }
-  
+
   &:nth-child(even) {
     grid-row-end: span 3;
   }
@@ -49,7 +57,7 @@
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: dense;
-  
+
   @media screen and (min-width: 640px) {
     grid-template-columns: repeat(2, minmax(275px, 1fr));
   }

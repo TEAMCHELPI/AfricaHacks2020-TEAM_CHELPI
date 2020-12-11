@@ -1,6 +1,6 @@
 <template>
   <div class="hero flex flex-col p-6 lg:px-12">
-    <the-navigation-bar />
+    <the-navigation-bar :sidebar="$auth.loggedIn"/>
 
     <section class="hero-text my-auto flex container mx-auto">
       <div class="flex justify-evenly">

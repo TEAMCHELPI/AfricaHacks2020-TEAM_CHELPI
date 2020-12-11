@@ -12,7 +12,7 @@
         </p>
       </template>
       <template v-slot:hero-button>
-        <button class="hero-button shake-animate">Order now</button>
+        <button @click.stop="$router.push({name: 'explorer'})" class="hero-button shake-animate">Explore</button>
       </template>
     </the-hero>
 
@@ -26,7 +26,7 @@
         </header>
         <ul class="flex justify-between items-center flex-wrap relative hiw">
           <li
-            class="flex flex-col lg:w-1/3 m-auto items-center p-6 text-center hiw-stage"
+            class="flex flex-col lg:w-1/3 md:w-1/3 m-auto items-center p-6 text-center hiw-stage"
           >
             <div class="hiw-card">
               <i
@@ -42,9 +42,8 @@
               Pick and order your favorite meals from top chefs.
             </p>
           </li>
-
           <li
-            class="flex flex-col hiw-stage lg:w-1/3 flex-auto items-center p-6 text-center"
+            class="flex flex-col hiw-stage md:w-1/3 lg:w-1/3 flex-auto items-center p-6 text-center"
           >
             <div class="hiw-card">
               <i
@@ -60,7 +59,7 @@
             </p>
           </li>
           <li
-            class="flex hiw-stage flex-col lg:w-1/3 m-auto items-center p-6 text-center"
+            class="flex hiw-stage flex-col md:w-1/3 lg:w-1/3 m-auto items-center p-6 text-center"
           >
             <div class="hiw-card">
               <i
@@ -219,13 +218,14 @@ export default {};
       border-left-color: theme("colors.green.400");
       border-left-style: dotted;
       height: 100px;
-      margin: auto;
+      margin: auto 4px;
       top: 0;
       bottom: 0;
+      display: block;
 
       @media screen and (min-width: 500px) {
         height: 0;
-        width: 45%;
+        /*width: 45%;*/
         border-bottom-width: 6px;
         border-bottom-color: theme("colors.green.400");
         border-bottom-style: dotted;
@@ -238,8 +238,8 @@ export default {};
   }
   .hiw-card {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 115px;
+    height: 115px;
     box-shadow: 0px 5px 13px #00000024;
     @apply flex;
     @apply items-center;

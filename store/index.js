@@ -1,12 +1,19 @@
 /**----------State----------**/
 export const state = () => ({
   leftSidebar: false,
+  cart:{
+    orders: [],
+    total: 0
+  }
 });
 
 /**----------Getters----------**/
 export const getters = {
   leftSidebar(state) {
     return state.leftSidebar
+  },
+  getCart(state){
+    return state.cart
   }
 };
 /**----------Mutations----------**/
@@ -14,6 +21,19 @@ export const mutations = {
   SET_LEFT_SIDEBAR(state, value) {
     state.leftSidebar = value
   },
+  ADD_MEAL_TO_CART(state, payload){
+    state.cart.orders.push(payload);
+    state.cart.total++;
+  },
+  REMOVE_MEAL_FROM_CART(state, payload){
+    // get meal id
+    let id = state.cart.orders.find(payload.id);
+    if(id != -1){
+      // if found, remove
+      state.cart.orders.splice(id,1);
+      state.cart.total--
+    }
+  }
 };
 
 /**----------Actions----------**/
@@ -25,5 +45,10 @@ export const actions = {
     if (getters.leftSidebar)
       commit('SET_LEFT_SIDEBAR', false)
   },
+  addMealToCart({commit}, payload){
+    commit('ADD_MEAL_TO_CART', payload)
+  },
+  removeMealFromCart({commit}, payload){
+    commit('REMOVE_MEAL_FROM_CART', payload)
+  }
 };
-

@@ -43,8 +43,8 @@
         <!-- End navigation links -->
 
         <!-- Logout button -->
-        <button class="my-4 uppercase p-4 w-full bg-brand-primary text-white font-medium">
-          Logout
+        <button @click.stop="authAction" :class="['my-4 uppercase p-4 w-full  text-white font-medium', $auth.loggedIn ? 'bg-red-700 hover:bg-red-600': 'bg-brand-primary hover:bg-green-600']">
+          {{$auth.loggedIn ? 'Log out' : 'Log in'}}
         </button>
         <!-- End logout button -->
       </section>
@@ -61,9 +61,12 @@
 		data() {
 			return {}
 		},
-		computed: {
+    computed: {
+      user() {
+        return this.$auth.user
+      },
 			avatar(){
-				return '/images/sample/chefs/chef002.jpg'
+				return this.$auth.user ? this.$auth.user.picture : '/images/sample/chefs/chef002.jpg'
       },
 			isOpen() {
 				return this.$store.getters["leftSidebar"];
@@ -73,6 +76,13 @@
 			closeLeftSidebar() {
 				this.$store.dispatch( "closeLeftSidebar" );
 			},
+      authAction(){
+        if(this.$auth.loggedIn){
+          this.$auth.logout()
+        }else{
+          this.$auth.loginWith('auth0')
+        }
+      }
 		}
 	}
 </script>

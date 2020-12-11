@@ -72,10 +72,25 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next'
   ],
   tailwindcss: {
     // add '~tailwind.config` alias
     exposeConfig: true
+  },
+  auth: {
+    redirect: {
+     login: '/', // redirect user when not connected
+     callback: '/auth/signed-in'
+   },
+    strategies: {
+      local: false,
+      auth0: {
+        clientId: process.env.AUTH0_CLIENT_ID,
+          audience: process.env.AUTH0_AUDIENCE,
+          domain: process.env.AUTH0_DOMAIN,
+      }
+    }
   },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {

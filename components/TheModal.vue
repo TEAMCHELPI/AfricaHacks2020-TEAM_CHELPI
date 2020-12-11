@@ -24,6 +24,7 @@
             ×
           </span>
         </button>
+
         <div class="relative w-auto my-6 mx-3 max-w-3xl z-50">
           <!--content-->
           <div
@@ -32,12 +33,10 @@
             <!--header-->
             <header
               :class="[
-                'flex items-start justify-between py-2 px-2 rounded-t ',
-                { 'bg-gradient': colorHeader },
-              ]"
+                'flex items-start justify-between py-2 px-2 rounded-t']"
             >
               <h2
-                class="text-lg font-head text-white font-normal flex-auto mx-10 text-center"
+                class="text-xl font-head font-bold  flex-auto mx-10 text-center"
               >
                 <slot name="title" />
               </h2>
