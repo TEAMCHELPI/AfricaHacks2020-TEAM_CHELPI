@@ -1,14 +1,14 @@
 <template>
   <section class="flex flex-col w-full h-full">
-    <div class="meal-card" :style="{ backgroundImage: `url(${entry.picture})` }">
+    <div class="meal-card" :style="{ backgroundImage: `url(${meal.meal_image})` }">
       <section v-show="!bare" class="metadata flex flex-col mb-0 flex-grow h-full">
         <section class="flex z-10 mb-auto justify-between flex-wrap p-4">
           <!-- meal rating -->
           <div class="meal-rating">
             <span class="chelpi-icon icon-star"></span>
-            <span class="rating ml-2 px-2 bg-orange-600 rounded-full">{{entry.rating}}</span>
+            <span class="rating ml-2 px-2 bg-orange-600 rounded-full">{{meal.meal_rating}}</span>
           </div>
-          <span class="chelpi-icon icon-heart-fill"></span>
+          <span class="chelpi-icon icon-heart"></span>
         </section>
         <section class="mt-auto flex flex-col justify-end">
           <section class="flex z-10 justify-between w-full h-full mt-auto p-4">
@@ -16,9 +16,9 @@
             <div class="flex space-x-2 items-center">
               <!-- Avatar -->
               <figure v-if="userAvatar" class="w-8 h-8 block overflow-hidden text-xs flex justify-center items-center leading-none text-transparent bg-gray-200 rounded-full">
-                <img :src="entry.picture ? entry.picture : placeholderImage" class="w-full h-full object-fit object-center" alt="chef avatar"/>
+                <img :src="meal.user_image ? meal.user_image : placeholderImage" class="w-full h-full object-fit object-center" alt="chef avatar"/>
               </figure>
-              <p class="font-head text-white font-medium text-sm capitalize">{name}</p>
+              <p class="font-head text-white font-medium text-sm capitalize">{{meal.user_name}}</p>
             </div>
 
             <button v-if="pickButton"
@@ -35,16 +35,16 @@
         </section>
       </section>
       <!-- Overlay on hover -->
-      <n-link :to="{name: 'meal-id', params: {id: 1}}"
+      <n-link :to="{name: 'meal-id', params: {id: ${meal.meal_id}}}"
               class="cursor-pointer availability absolute top-0 left-0 h-full w-full justify-center items-center flex transition-all duration-500 bg-black bg-opacity-75 ease-in-out hover:opacity-100 opacity-0 text-white font-medium font-head">
         Open at {2:30pm}
       </n-link>
     </div>
     <div v-show="!bare" class="flex py-3 items-baseline justify-between">
-      <span class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500">Sandwich</span
+      <span class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500">{{meal.meal_name}}</span
           ><span
             class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500"
-            >$0.1</span
+            >${{meal.meal_price}}</span
           >
         </div>
       </section>
@@ -78,19 +78,20 @@ import placeholderImage from '~/helper/placeholder-img.js';
     },
     created(){
       let res = this.callApi('get', 'user').then(response=>{
-        this.meal = response.data
+        this.meal = response.data.user.restaurant.meal
       })
     },
     data(){
       return {
         meal:{
-          picture: '/images/sample/meals/meal001.jpg',
-          rating: 4.5,
-          owner: {
-            name: 'Helpi',
-            picture: placeholderImage
-          }
-        }
+          meal_image: '/images/sample/meals/meal001.jpg',
+          meal_rating: 4.5,
+          meal_name: 'Meal name',
+          user_name: 'User name',
+          user_image:placeholderImage,
+          price: 0
+        },
+        user:{}
       }
     },
     methods: {
