@@ -1,7 +1,6 @@
 <template>
-
   <section class="flex flex-col w-full h-full">
-    <div class="meal-card" :style="{ backgroundImage: `url(entry.image)` }">
+    <div class="meal-card" :style="{ backgroundImage: `url(${entry.picture})` }">
       <section v-show="!bare" class="metadata flex flex-col mb-0 flex-grow h-full">
         <section class="flex z-10 mb-auto justify-between flex-wrap p-4">
           <!-- meal rating -->
@@ -61,7 +60,7 @@ import placeholderImage from '~/helper/placeholder-img.js';
         type: Object | Function, required: true,
         default(){
           return {
-            image:'/images/sample/meals/meal001.jpg',
+            picture:'/images/sample/meals/meal001.jpg',
             rating: 4.5,
             owner: {
               name: 'Helpi'
@@ -77,12 +76,25 @@ import placeholderImage from '~/helper/placeholder-img.js';
         required: false
       }
     },
+    created(){
+      let res = this.callApi('get', 'user').then(response=>{
+        this.meal = response.data
+      })
+    },
     data(){
       return {
-        placeholderImage: placeholderImage
+        meal:{
+          picture: '/images/sample/meals/meal001.jpg',
+          rating: 4.5,
+          owner: {
+            name: 'Helpi',
+            picture: placeholderImage
+          }
+        }
       }
     },
     methods: {
+      
       pickMeal(payload) {
         this.$eventBus.$emit('pickMeal', payload)
       },
