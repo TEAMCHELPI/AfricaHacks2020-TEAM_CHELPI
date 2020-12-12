@@ -16,6 +16,18 @@ Vue.mixin({
         goBack() {
             history.back()
         },
+        async callApi(method, url, data){
+          try{
+            return await this.$axios({
+              method,
+              url,
+              data
+            })
+            
+          }catch(e){
+            console.error(e)
+          }
+        }
 
     },
     filters: {
