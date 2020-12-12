@@ -78,7 +78,8 @@ import placeholderImage from '~/helper/placeholder-img.js';
     },
     created(){
       let res = this.callApi('get', 'user').then(response=>{
-        this.meal = response.data.user.restaurant.meal
+        this.meal = response.data.user.restaurant.meal;
+        console.log(response.data)
       })
     },
     data(){
