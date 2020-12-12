@@ -35,7 +35,7 @@
         </section>
       </section>
       <!-- Overlay on hover -->
-      <n-link :to="{name: 'meal-id', params: {id: ${meal.meal_id}}}"
+      <n-link :to="{name: 'meal-id', params: {id: meal.meal_id}}"
               class="cursor-pointer availability absolute top-0 left-0 h-full w-full justify-center items-center flex transition-all duration-500 bg-black bg-opacity-75 ease-in-out hover:opacity-100 opacity-0 text-white font-medium font-head">
         Open at {2:30pm}
       </n-link>
@@ -96,7 +96,7 @@ import placeholderImage from '~/helper/placeholder-img.js';
       }
     },
     methods: {
-      
+
       pickMeal(payload) {
         this.$eventBus.$emit('pickMeal', payload)
       },
