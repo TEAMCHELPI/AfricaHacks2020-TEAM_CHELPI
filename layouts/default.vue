@@ -50,11 +50,16 @@
         }
       }
     },
+    async asyncData({ $axios }) {
+      const ip = await $axios.$get('http://icanhazip.com')
+      return { ip }
+    },
     methods: {
       pickMeal() {
         // if not authenticated
         if (!this.$auth.loggedIn) this.revealModal('sign-up', 'Sign up')
         else {
+
         }
       },
       placeOrder(){

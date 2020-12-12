@@ -94,8 +94,7 @@ export default {
   },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseUrl: '',
-    https: true,
+    baseUrl: 'https://my-json-server/typicode.com/TEAMCHELPI/AfricaHackRESTApi/',
     headers: {
       common: {
         'Accept': 'application/json, text/plain, */*'

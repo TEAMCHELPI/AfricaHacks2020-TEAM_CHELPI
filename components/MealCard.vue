@@ -1,15 +1,15 @@
 <template>
 
   <section class="flex flex-col w-full h-full">
-    <div class="meal-card" :style="{ backgroundImage: `url('/images/sample/meals/meal001.jpg')` }">
+    <div class="meal-card" :style="{ backgroundImage: `url(entry.image)` }">
       <section v-show="!bare" class="metadata flex flex-col mb-0 flex-grow h-full">
         <section class="flex z-10 mb-auto justify-between flex-wrap p-4">
           <!-- meal rating -->
           <div class="meal-rating">
-            <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
-            <span class="rating ml-2 px-2 bg-orange-600 rounded-full">4.5</span>
+            <span class="chelpi-icon icon-star"></span>
+            <span class="rating ml-2 px-2 bg-orange-600 rounded-full">{{entry.rating}}</span>
           </div>
-          <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
+          <span class="chelpi-icon icon-heart-fill"></span>
         </section>
         <section class="mt-auto flex flex-col justify-end">
           <section class="flex z-10 justify-between w-full h-full mt-auto p-4">
@@ -17,9 +17,9 @@
             <div class="flex space-x-2 items-center">
               <!-- Avatar -->
               <figure v-if="userAvatar" class="w-8 h-8 block overflow-hidden text-xs flex justify-center items-center leading-none text-transparent bg-gray-200 rounded-full">
-                <img src="" class="w-full h-full object-fit object-center" alt="chef avatar"/>
+                <img :src="entry.picture ? entry.picture : placeholderImage" class="w-full h-full object-fit object-center" alt="chef avatar"/>
               </figure>
-              <p class="font-head text-white font-medium text-sm capitalize">{Name}</p>
+              <p class="font-head text-white font-medium text-sm capitalize">{name}</p>
             </div>
 
             <button v-if="pickButton"
@@ -53,12 +53,21 @@
 </template>
 
 <script>
-
+import placeholderImage from '~/helper/placeholder-img.js';
   export default {
     name: 'MealCard',
     props: {
       entry: {
-        type: Object | Function, required: true
+        type: Object | Function, required: true,
+        default(){
+          return {
+            image:'/images/sample/meals/meal001.jpg',
+            rating: 4.5,
+            owner: {
+              name: 'Helpi'
+            }
+          }
+        }
       },
       pickButton: { default: true, type: Boolean, required: false },
       userAvatar: { default: true, type: Boolean, required: false },
@@ -66,6 +75,11 @@
         default: false,
         type: Boolean,
         required: false
+      }
+    },
+    data(){
+      return {
+        placeholderImage: placeholderImage
       }
     },
     methods: {

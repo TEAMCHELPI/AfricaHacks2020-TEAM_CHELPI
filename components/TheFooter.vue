@@ -49,28 +49,21 @@
           <ul class="social-icons flex items-center space-x-3 my-3">
             <li class="text-gray-400 relative">
               <a
-                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                class="chelpi-icon icon-facebook icon-xl bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
                 href="#"
                 ><span></span
               ></a>
             </li>
             <li class="text-gray-400 relative">
               <a
-                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                class="chelpi-icon icon-instagram icon-xl flex items-center justify-center relativew-10 w-10 h-10"
                 href="#"
                 ><span></span
               ></a>
             </li>
             <li class="text-gray-400 relative">
               <a
-                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
-                href="#"
-                ><span></span
-              ></a>
-            </li>
-            <li class="text-gray-400 relative">
-              <a
-                class="rounded-full bg-white bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
+                class="rounded-full chelpi-icon icon-twitter icon-xl bg-opacity-50 flex items-center justify-center relativew-10 w-10 h-10"
                 href="#"
                 ><span></span
               ></a>

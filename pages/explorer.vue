@@ -13,34 +13,33 @@
 
         <form @submit.prevent="searchMeal" class="grid grid-cols-1 grid-flow-row md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
           <label class="form-input flex items-center py-1 rounded-none" for="search-box">
-                    <span class="w-4 h-4 block mr-3 bg-gray-300"></span>
-                    <input
-                      id="search-box"
-                      type="text"
-                      required
-                      class="form-input paceholder-gray-900 border-none m-0 focus:outline-none placeholder-opacity-95 focus:shadow-none font-head "
-                      placeholder="Enter dish name"
-                    />
-                  </label>
+                      <span class="chelpi-icon icon-magnifying-glass"></span>
+                      <input
+                        id="search-box"
+                        type="text"
+                        required
+                        class="form-input paceholder-gray-900 border-none m-0 focus:outline-none placeholder-opacity-95 focus:shadow-none font-head "
+                        placeholder="Enter dish name"
+                      />
+                    </label>
 
           <label class="form-input flex py-1 items-center rounded-none" for="schedule-delivery">
-                    <span class="w-4 h-4 mr-3 block bg-gray-300"></span>
-                    <select
-                      id="schedule-delivery"
-                      name="schedule-delivery"
-                      class="form-select text-gray-600 font-head border-none flex-auto m-0 focus:shadow-none">
-                    <option value="">Schedule delivery type</option>
-                    <option value="now">Now</option>
-                    <option value="later">Later</option>
-                  </select>
-                    <span class="w-4 h-4 block bg-gray-300"></span>
-                  </label>
+                      <span class="chelpi-icon icon-date"></span>
+                      <select
+                        id="schedule-delivery"
+                        name="schedule-delivery"
+                        class="form-select text-gray-600 font-head border-none flex-auto m-0 focus:shadow-none">
+                      <option value="">Schedule delivery type</option>
+                      <option value="now">Now</option>
+                      <option value="later">Later</option>
+                    </select>
+                    </label>
 
           <label class="flex items-center flex-auto" for="search-button">
-                    <button id="search-button" class="p-3 text-white font-medium px-8 bg-brand-primary" type="submit">
-                      Find Meals
-                    </button>
-                  </label>
+                      <button id="search-button" class="p-3 text-white font-medium px-8 bg-brand-primary" type="submit">
+                        Find Meals
+                      </button>
+                    </label>
         </form>
       </section>
     </section>
@@ -58,28 +57,28 @@
           <span class="w-8 h-8 block bg-green-300 rounded-full"></span>
           <span class="font-head lg:text-xl"> Meals picked</span>
           <span class="leading-none px-3 p-1 rounded-full text-xs bg-gray-500 bg-opacity-25">{{cart.total}}</span
-                  >
-                </section>
-              </header>
-
-              <!--    TODO:  Grid-->
-              <meal-mansonry-grid :entries="meals"></meal-mansonry-grid>
-              <!-- Chefs near by -->
-              <section>
-                <header class="flex flex-wrap justify-between items-center w-full py-4">
-                  <section class="flex flex-auto mr-auto items-center space-x-3">
-                    <span class="font-head lg:text-xl text-right text-gray-900"
-                    >Chefs Nearby</span
                     >
-                    <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
+                  </section>
+                </header>
+
+                <!--    TODO:  Grid-->
+                <meal-mansonry-grid :entries="meals"></meal-mansonry-grid>
+                <!-- Chefs near by -->
+                <section>
+                  <header class="flex flex-wrap justify-between items-center w-full py-4">
+                    <section class="flex flex-auto mr-auto items-center space-x-3">
+                      <span class="font-head lg:text-xl text-right text-gray-900"
+                      >Chefs Nearby</span
+                      >
+                      <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
         </section>
         <section class="flex items-center space-x-2">
           <button class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-400 text-white">
-                      Previous
-                    </button>
+                        Previous
+                      </button>
           <button class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-600 text-white">
-                      Next
-                    </button>
+                        Next
+                      </button>
         </section>
       </header>
 
@@ -141,11 +140,11 @@
       }
     },
     computed: {
-      meals(){
+      meals() {
         return [{}, {}, {}, {}, {}]
       },
-      nearBy(){
-        return [{}, {}];
+      nearBy() {
+        return [{}, {}]
       },
       cart() {
         return this.$store.getters['getCart']
