@@ -6,7 +6,7 @@
           <!-- meal rating -->
           <div class="meal-rating">
             <span class="chelpi-icon icon-star"></span>
-            <span class="rating ml-2 px-2 bg-orange-600 rounded-full">{{meal.meal_rating}}</span>
+            <span class="rating ml-2 px-2 bg-orange-600 rounded-full text-white">{{meal.meal_rating}}</span>
           </div>
           <span class="chelpi-icon icon-heart"></span>
         </section>

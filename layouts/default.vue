@@ -50,10 +50,6 @@
         }
       }
     },
-    async asyncData({ $axios }) {
-      const ip = await $axios.$get('http://icanhazip.com')
-      return { ip }
-    },
     methods: {
       pickMeal() {
         // if not authenticated

@@ -25,7 +25,12 @@ $icon-star-fill:'/icons/star-fill.svg';
   width : 18px;
   height: 18px;
   margin: auto 0;
-
+  fill: currentColor;
+position: relative;
+  &.icon-xs {
+    width : 12px;
+    height: 12px;
+  }
   &.icon-sm {
     width : 16px;
     height: 16px;
@@ -95,7 +100,8 @@ $icon-star-fill:'/icons/star-fill.svg';
     background-image: url($icon-date)
   }
   &.icon-utencil{
-  backgrond-image: url($icon-utencil)};
+  background-image: url($icon-utencil)
+}
   &.icon-creative{
     backgound-image: url($icon-creative)
   };
