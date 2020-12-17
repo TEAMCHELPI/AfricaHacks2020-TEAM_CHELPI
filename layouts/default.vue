@@ -51,20 +51,23 @@
       }
     },
     methods: {
-      pickMeal() {
+      pickMeal(payload) {
         // if not authenticated
         if (!this.$auth.loggedIn) this.revealModal('sign-up', 'Sign up')
         else {
-
+          // add to cart
+          this.$store.dispatch('addMealToCart', payload);
         }
       },
       placeOrder(){
         this.revealModal('schedule-order', 'Schedule Delivery')
       },
-      dropMeal() {
+      dropMeal(payload) {
         // if not authenticated
         if (!this.$auth.loggedIn) this.revealModal('sign-up', 'Sign up')
         else {
+          // remove from cart
+          this.$store.dispatch('removeMealFromCart', payload);
         }
       },
       hideModal(){
@@ -80,6 +83,9 @@
           console.error(e.message)
         }
       }
+    },
+    middleware({ route, redirect, app, store }){
+      store.dispatch( "closeLeftSidebar" );
     }
   }
 

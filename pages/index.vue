@@ -13,6 +13,7 @@
       </template>
       <template v-slot:hero-button>
         <button @click.stop="$router.push({name: 'explorer'})" class="hero-button shake-animate">Explore</button>
+        <button v-if="!$auth.loggedIn" type="button" name="button" class="px-8 p-3 hover:bg-green-100 hover:text-brand-primary hover:shadow-outline text-xl outline rounded-full ml-2" @click.stop="$auth.loginWith('auth0')">Sign in</button>
       </template>
     </the-hero>
 

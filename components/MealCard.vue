@@ -1,4 +1,5 @@
 <template>
+
   <section class="flex flex-col w-full h-full">
     <div class="meal-card" :style="{ backgroundImage: `url(${meal.meal_image})` }">
       <section v-show="!bare" class="metadata flex flex-col mb-0 flex-grow h-full">
@@ -15,22 +16,25 @@
             <!-- Name -->
             <div class="flex space-x-2 items-center">
               <!-- Avatar -->
-              <figure v-if="userAvatar" class="w-8 h-8 block overflow-hidden text-xs flex justify-center items-center leading-none text-transparent bg-gray-200 rounded-full">
-                <img :src="meal.user_image ? meal.user_image : placeholderImage" class="w-full h-full object-fit object-center" alt="chef avatar"/>
+              <figure v-if="userAvatar"
+                      class="w-8 h-8 block overflow-hidden text-xs flex justify-center items-center leading-none text-transparent bg-gray-200 rounded-full">
+                <img :src="meal.user_image ? meal.user_image : placeholderImage" class="w-full h-full object-fit object-center" alt="chef avatar"
+                />
               </figure>
               <p class="font-head text-white font-medium text-sm capitalize">{{meal.user_name}}</p>
             </div>
-
-            <button v-if="pickButton"
-                    @click="pickMeal({ name: 'Fabriques' })"
-                    class="p-2 hover:shadow-outline hover:text-white hover:bg-brand-primary font-medium px-6 bg-white rounded font-head text-gray-700">
-                  Pick
-                </button>
-            <!-- <button @click.stop="dropMeal(payload)"
-                  class="p-2 px-6 hover:shadow-outline bg-brand-primary hover:bg-green-100 font-medium hover:text-brand-primary text-white font-head rounded"
-                >
-                  Unpick
-                </button> -->
+            <template v-if="pickButton">
+              <button v-if="!isPicked"
+                      @click="pickMeal(meal)"
+                      class="p-2 hover:shadow-outline hover:text-white hover:bg-brand-primary font-medium px-6 bg-white rounded font-head text-gray-700">
+                    Pick
+              </button>
+              <button v-else @click.stop="dropMeal(meal)"
+                class="p-2 px-6 hover:shadow-outline bg-brand-primary hover:bg-green-100 font-medium hover:text-brand-primary text-white font-head rounded"
+              >
+                Drop
+              </button>
+            </template>
           </section>
         </section>
       </section>
@@ -42,31 +46,24 @@
     </div>
     <div v-show="!bare" class="flex py-3 items-baseline justify-between">
       <span class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500">{{meal.meal_name}}</span
-          ><span
-            class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500"
-            >${{meal.meal_price}}</span
-          >
-        </div>
-      </section>
+            ><span
+              class="leading-normal text-sm font-head font-medium bg-opacity-25 rounded-full px-3 bg-gray-500"
+              >${{meal.meal_price}}</span
+            >
+          </div>
+        </section>
 
 </template>
 
 <script>
-import placeholderImage from '~/helper/placeholder-img.js';
+
+  import placeholderImage from '~/helper/placeholder-img.js'
   export default {
     name: 'MealCard',
     props: {
       entry: {
-        type: Object | Function, required: true,
-        default(){
-          return {
-            picture:'/images/sample/meals/meal001.jpg',
-            rating: 4.5,
-            owner: {
-              name: 'Helpi'
-            }
-          }
-        }
+        type: Object | Function,
+        required: true
       },
       pickButton: { default: true, type: Boolean, required: false },
       userAvatar: { default: true, type: Boolean, required: false },
@@ -76,33 +73,38 @@ import placeholderImage from '~/helper/placeholder-img.js';
         required: false
       }
     },
-    created(){
-      let res = this.callApi('get', 'user').then(response=>{
-        this.meal = response.data.user.restaurant.meal;
-        console.log(response.data)
-      })
+    created() {
+      // let res = this.callApi('get', 'user').then(response => {
+      //   this.meal = response.data.user.restaurant.meal
+      //   // console.log(response.data)
+      // })
     },
-    data(){
+    data() {
       return {
-        meal:{
+        meal: {
           meal_image: '/images/sample/meals/meal001.jpg',
           meal_rating: 4.5,
           meal_name: 'Meal name',
           user_name: 'User name',
-          user_image:placeholderImage,
-          price: 0
+          user_image: placeholderImage,
+          price: 0,
+          id: 1
         },
-        user:{}
+        user: {}
+      }
+    },
+    computed: {
+      isPicked() {
+        return this.$store.getters['isPicked'](this.meal.id)
       }
     },
     methods: {
-
       pickMeal(payload) {
-        this.$eventBus.$emit('pickMeal', payload)
+        this.$eventBus.$emit('pickMeal', payload);
       },
       // Only authenticated users can see this
       dropMeal(payload) {
-        this.$eventBus.$emit('dropMeal', payload)
+        this.$eventBus.$emit('dropMeal', payload);
       }
     }
   }
@@ -124,7 +126,7 @@ import placeholderImage from '~/helper/placeholder-img.js';
     background-repeat: no-repeat;
     background-position: center;
     transition: all 0.75s ease-in-out;
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 600px) {
       min-height: 275px;
     }
     &:hover {

@@ -14,6 +14,9 @@ export const getters = {
   },
   getCart(state){
     return state.cart
+  },
+  isPicked: (state)=>(id)=>{
+    return state.cart.orders.length ?  state.cart.orders.some(item=>item.id==id) : false
   }
 };
 /**----------Mutations----------**/
@@ -27,7 +30,7 @@ export const mutations = {
   },
   REMOVE_MEAL_FROM_CART(state, payload){
     // get meal id
-    let id = state.cart.orders.find(payload.id);
+    let id = state.cart.orders.find(item=>item.id === payload.id);
     if(id != -1){
       // if found, remove
       state.cart.orders.splice(id,1);

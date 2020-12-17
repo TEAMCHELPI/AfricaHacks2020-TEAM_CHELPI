@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-full h-screen z-20 fixed top-0 transition-all duration-500"
+  <aside class="w-full h-screen z-50 fixed top-0 transition-all duration-500"
          :style="{ maxWidth: '300px', left: isOpen ? '0' : '-100%' }"
          ref="">
 
