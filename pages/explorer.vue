@@ -3,7 +3,6 @@
   <div>
     <!-- Hero section -->
     <section class="min-h-screen flex flex-col p-6 lg:px-12 bg-gray-900">
-      <the-navigation-bar :sidebar="$auth.loggedIn"></the-navigation-bar>
       <section class="container mx-auto h-full m-auto">
         <header class="py-4 block">
           <h1 class="lg:text-5xl text-4xl font-head text-white">
@@ -12,23 +11,23 @@
         </header>
 
         <form @submit.prevent="searchMeal" class="grid grid-cols-1 grid-flow-row md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
-          <label class="form-input flex items-center py-1 rounded-none" for="search-box">
+          <label class="form-input sharp flex items-center py-1 space-x-3 rounded-none" for="search-box">
                       <span class="chelpi-icon icon-magnifying-glass"></span>
                       <input
                         id="search-box"
                         type="text"
                         required
-                        class="form-input paceholder-gray-900 border-none m-0 focus:outline-none placeholder-opacity-95 focus:shadow-none font-head "
+                        class="form-input borderless focus:shadow-none font-head "
                         placeholder="Enter dish name"
                       />
                     </label>
 
-          <label class="form-input flex py-1 items-center rounded-none" for="schedule-delivery">
+          <label class="form-input space-x-3 flex py-1 items-center rounded-none" for="schedule-delivery">
                       <span class="chelpi-icon icon-date"></span>
                       <select
                         id="schedule-delivery"
                         name="schedule-delivery"
-                        class="form-select text-gray-600 font-head border-none flex-auto m-0 focus:shadow-none">
+                        class="form-select borderless text-gray-600 font-head border-none flex-auto m-0 focus:shadow-none">
                       <option value="">Schedule delivery type</option>
                       <option value="now">Now</option>
                       <option value="later">Later</option>
@@ -56,10 +55,10 @@
         <section class="flex text-right py-3 items-center space-x-3">
           <span class="w-8 h-8 block bg-green-300 rounded-full"></span>
           <span class="font-head lg:text-xl"> Meals picked</span>
-          <span class="leading-none px-3 p-1 rounded-full text-xs bg-gray-500 bg-opacity-25">{{cart.total}}</span
-                    >
-                  </section>
-                </header>
+          <span class="leading-none px-3 p-1 rounded-full text-xs bg-gray-500 bg-opacity-25">
+          {{cart.total}}</span>
+        </section>
+      </header>
 
                 <!--    TODO:  Grid-->
                 <meal-mansonry-grid :entries="meals"></meal-mansonry-grid>
@@ -118,20 +117,23 @@
         chefsNearbySwiperOption: {
           spaceBetween: 10,
           mousewheel: true,
-          slidesPerView: 3,
+          slidesPerView: 1,
           breakpoints: {
             // when window width is >= 320px
-            320: {
+             320: {
               slidesPerView: 1,
               spaceBetween: 20
             },
             // when window width is >= 480px
             480: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 30
             },
             // when window width is >= 640px
-            640: {
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 40
+            }, 1024 : {
               slidesPerView: 4,
               spaceBetween: 40
             }

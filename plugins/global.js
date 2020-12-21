@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import moment from 'moment'
-
+import 'animate.css';
 Vue.prototype.$eventBus = new Vue();
 Vue.mixin({
     methods: {

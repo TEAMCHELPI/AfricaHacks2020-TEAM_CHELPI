@@ -2,7 +2,7 @@
   <section v-if="entries" class="grid-container my-6">
     <div class="meal-grid-item" v-for="entry of entries"
     :key="entry.id">
-      <meal-card :entry="entry"/>
+      <meal-card :entry="entry" :pickButton="!admin"/>
     </div>
   </section>
 </template>
@@ -18,6 +18,11 @@
         default: ()=>[],
         required: true,
         type: Array
+      },
+      admin:{
+        required: false,
+        default: false,
+        type: Boolean
       }
     },
 		data(){

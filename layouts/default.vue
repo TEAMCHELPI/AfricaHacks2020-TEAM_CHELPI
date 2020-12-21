@@ -1,8 +1,14 @@
 <template>
 
   <main>
-    <the-sidebar/>
-    <Nuxt />
+     <section class="p-4 absolute z-50 left-0 w-full top-0">
+      <the-navigation-bar :sidebar="$auth.loggedIn" />
+    </section>
+    <div class="relative z-0">
+      <Nuxt />
+    </div>
+    <the-sidebar v-if="$auth.loggedIn"/>
+    
     <!--  The Footer-->
     <the-footer />
 
@@ -18,6 +24,7 @@
             </component>
           </template>
     </the-modal>
+    
   </main>
 
 </template>
@@ -35,9 +42,8 @@
     mounted() {
       this.$eventBus.$on('pickMeal', this.pickMeal)
       this.$eventBus.$on('dropMeal', this.dropMeal)
-      this.$eventBus.$on('placeOrder', this.placeOrder)
       this.$eventBus.$on('hideModal', this.hideModal)
-    },
+     },
     destroyed() {
       this.$eventBus.$off()
     },
@@ -50,18 +56,15 @@
         }
       }
     },
-    methods: {
+    methods: {     
       pickMeal(payload) {
         // if not authenticated
-        if (!this.$auth.loggedIn) this.revealModal('sign-up', 'Sign up')
+        if (!this.$auth.loggedIn) this.revealModal('sign-up')
         else {
           // add to cart
           this.$store.dispatch('addMealToCart', payload);
         }
-      },
-      placeOrder(){
-        this.revealModal('schedule-order', 'Schedule Delivery')
-      },
+      },      
       dropMeal(payload) {
         // if not authenticated
         if (!this.$auth.loggedIn) this.revealModal('sign-up', 'Sign up')
@@ -84,9 +87,7 @@
         }
       }
     },
-    middleware({ route, redirect, app, store }){
-      store.dispatch( "closeLeftSidebar" );
-    }
+    middleware: ['helper']
   }
 
 </script>

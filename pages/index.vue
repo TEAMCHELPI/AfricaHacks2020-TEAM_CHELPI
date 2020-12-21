@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen relative z-0">
     <the-hero>
       <template v-slot:hero-title>
         <h1 class="hero-title text-4xl">
@@ -18,7 +18,7 @@
     </the-hero>
 
     <!-- How it works -->
-    <section>
+    <section class="relative z-0 mx-auto">
       <div class="container mx-auto py-24">
         <header class="lg:my-16 my-12">
           <h2 class="lg:text-5xl text-4xl font-head text-center capitalize">
@@ -80,18 +80,18 @@
     </section>
 
     <!-- Become a chef-->
-    <section class="bg-gray-200">
+    <section class="relative z-0 bg-gray-200 ">
       <div
-        class="flex flex-wrap justify-between mx-auto lg:py-24 py-12 relative"
+        class="container mx-auto flex flex-wrap justify-between mx-auto lg:py-24 py-12 static"
       >
-        <section class="flex-auto relative">
+        <section class="flex-auto static">
           <img
             src="/images/landing/buyer.png"
-            class="object-contain w-full h-full"
+            class="object-contain w-full h-full "
             alt=""
           />
         </section>
-        <section class="lg:w-2/3 flex items-center flex-col p-6">
+        <section class="static lg:w-2/3 flex items-center flex-col p-6">
           <div class="mx-auto my-12 lg:w-9/12 md:w-10/12">
             <header class="my-8">
               <span
@@ -121,11 +121,11 @@
       </div>
     </section>
     <!-- Become an agent-->
-    <section>
+    <section class="relative z-0" >
       <div
-        class="flex flex-wrap justify-between mx-auto lg:py-24 py-12 relative"
+        class="flex container mx-auto flex-wrap justify-between mx-auto lg:py-24 py-12 static"
       >
-        <section class="lg:w-2/3 flex items-center flex-col p-6">
+        <section class="lg:w-2/3 flex items-center flex-col ">
           <div class="mx-auto my-12 lg:w-9/12 md:w-10/12">
             <header class="my-8">
               <span
@@ -152,7 +152,7 @@
             </n-link>
           </div>
         </section>
-        <section class="flex-auto relative">
+        <section class="flex-auto static">
           <img
             src="/images/landing/agent.png"
             class="object-contain w-full h-full"
@@ -161,9 +161,6 @@
         </section>
       </div>
     </section>
-  </div>
-</template>
-    </the-hero>
   </div>
 </template>
 

@@ -1,12 +1,16 @@
 /**----------State----------**/
 export const state = () => ( {
-  authenticated: true,
-} );
+  authenticated: false,
+  user: null
+});
 
 /**----------Getters----------**/
 export const getters = {
   authenticated(state) {
     return state.authenticated;
+  },
+  user(state){
+  	return state.user
   }
 };
 

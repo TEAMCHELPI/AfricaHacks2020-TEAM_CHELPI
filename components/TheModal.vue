@@ -31,7 +31,7 @@
             class=" shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
           >
             <!--header-->
-            <header
+           <!--  <header
               :class="[
                 'flex items-start justify-between py-2 px-2 rounded-t']"
             >
@@ -40,7 +40,7 @@
               >
                 <slot name="title" />
               </h2>
-            </header>
+            </header> -->
             <!--body-->
             <div class="relative flex-auto">
               <slot v-bind:action="actions" />

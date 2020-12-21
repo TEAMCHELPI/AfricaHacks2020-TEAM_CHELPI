@@ -8,54 +8,58 @@
       <nuxt/>
     </section>
 
-    <section v-if="!completed" class="my-6 lg:w-10/12 flex flex-col h-full flex-grow  mx-auto">
+    <section v-if="!completed" class="my-6 w-full flex flex-col h-full flex-grow  mx-auto">
       <!-- Order listing -->
       <template id="order-listing" v-if="orders.length">
-                <order-card :order="order"
-                :key="`order-${uuid()}`"
-                v-for="order of orders" ></order-card>
+        <section class="lg:w-10/12 mx-auto">
+          <order-card :order="order"
+        :key="`order-${uuid()}`"
+        v-for="order of orders" >          
+        </order-card>
+        <section class="lg:flex bg-white rounded md:flex block p-3 my-3 justify-between">
+          <section class="flex items-baseline space-x-3">
+            <strong class="mr-24 font-head text-xl font-medium text-gray-900  ">
+              Delivery Fee
+            </strong>
+            <p class="flex-auto font-head text-2xl font-medium text-gray-800">
+              $2.55
+            </p>
+          </section>
+          <section class="flex items-baseline space-x-3">
+            <strong class="font-head text-xl font-medium text-gray-900">
+            Total
+            </strong>
+            <p class="flex-auto font-head text-2xl font-medium text-gray-800">
+              {{cartTotal}}
+            </p>
+          </section>
+        </section>
+        <section class="p-3">
+          <button @click.stop="placeOrder"
+          type="button"
+          class="p-4 px-8 text-white text-xl font-head font-medium hover:bg-green-600 bg-brand-primary leading-none"
+          name="button">
+            Place Order
+          </button>
+        </section>
+        </section>
           <!-- Cost summary -->
-                <section class="lg:flex bg-white rounded md:flex block p-3 my-3 justify-between">
-                  <section class="flex items-baseline space-x-3">
-                  <strong class="mr-24 font-head text-xl font-medium text-gray-900	">
-                    Delivery Fee
-                  </strong>
-                  <p class="flex-auto font-head text-2xl font-medium text-gray-800">
-                    $2.55
-                  </p>
-                </section>
-                  <section class="flex items-baseline space-x-3">
-                    <strong class="font-head text-xl font-medium text-gray-900">
-                    Total
-                    </strong>
-                    <p class="flex-auto font-head text-2xl font-medium text-gray-800">
-                      {{cartTotal}}
-                    </p>
-                  </section>
-                </section>
-                <section class="p-3">
-                  <button @click.stop="placeOrder"
-                  type="button"
-                  class="p-4 px-8 text-white text-xl font-head font-medium hover:bg-green-600 bg-brand-primary leading-none"
-                  name="button">
-                    Place Order
-                  </button>
-                </section>
-              </template>
+        
+      </template>
       <template id="order-empty" v-else>
-                <section class="lg:w-6/12 md:w-6/12 m-auto text-center">
-                  <header class="mb-3">
-                    <h1 class="font-head text-4xl">Nothing Found!</h1>
-                  </header>
-                  <p class="mb-6 font-head text-lg tracking-wide font-light">You have not added any meals yet</p>
-                  <n-link :to="{name: 'explorer'}" type="button" name="button" class="bg-brand-primary p-5 block leading-none px-12 text-white text-xl font-head hover:bg-green-600">Explore</n-link>
-                </section>
-              </template>
+        <section class=" block m-auto text-center">
+          <header class="mb-3">
+            <h1 class="font-head text-4xl">Nothing Found!</h1>
+          </header>
+          <p class="mb-6 font-head text-lg tracking-wide font-light">You have not added any meals yet</p>
+          <n-link :to="{name: 'explorer'}" type="button" name="button" class="block bg-brand-primary p-4 leading-none text-white text-xl font-head hover:bg-green-600">Explore</n-link>
+        </section>
+      </template>
     </section>
 
     <!-- Dispatched -->
     <section v-else class="text-center font-head m-auto lg:w-3/12 md:w-6/12 px-3">
-      <header class=" text-2xl  flex items-center space-x-3 justify-center  text-brand-primary">
+      <header class="text-2xl  flex items-center space-x-3 justify-center  text-brand-primary">
         <h1>Happy Eating!!</h1>
         <span class="w-6 h-6 block bg-gray-300 rounded-full">
                 <img src="/images/emoji/happy.svg" alt="">
@@ -75,6 +79,7 @@
 
   export default {
     name: 'orders',
+    layout: 'dashboard',
     data() {
       return {
         completed: false
