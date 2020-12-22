@@ -40,7 +40,7 @@
       </section>
       <!-- Overlay on hover -->
       <n-link :to="{name: 'meal-id', params: {id: meal.meal_id}}"
-              class="cursor-pointer availability absolute top-0 left-0 h-full w-full justify-center items-center flex transition-all duration-500 bg-black bg-opacity-75 ease-in-out hover:opacity-100 opacity-0 text-white font-medium font-head">
+              :class="['cursor-pointer availability absolute top-0 left-0 h-full w-full justify-center items-center flex transition-all duration-500 bg-black bg-opacity-75 ease-in-out opacity-0 text-white font-medium font-head', {'hover:opacity-100': false}]">
         Open at {2:30pm}
       </n-link>
     </div>
@@ -88,12 +88,15 @@
           user_name: 'User name',
           user_image: placeholderImage,
           price: 0,
-          id: 1
+          id: 1,
+          opening_hour: 8,
+          closing_hour: 16 
         },
         user: {}
       }
     },
     computed: {
+      isOpened(){},
       isPicked() {
         return this.$store.getters['isPicked'](this.meal.id)
       }
@@ -130,7 +133,7 @@
       min-height: 275px;
     }
     &:hover {
-      background-size: 200%;
+      
     }
     &:before {
       content: '';

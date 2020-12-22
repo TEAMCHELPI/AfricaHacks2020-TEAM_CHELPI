@@ -4,7 +4,7 @@
     <div class="container mx-auto flex justify-between bg-transparent">
         <!-- Menu buttons -->
       <section class="flex items-center">
-        <button v-if="sidebar" @click.stop="openSidebar" :class="['block  fixed rounded bg-green-600 bg-opacity-25 hover:bg-opacity-75 p-3', {'hamburger-close': leftSidebar}]">
+        <button v-if="sidebar" @click.stop="openSidebar" :class="['block  fixed rounded bg-green-600 bg-opacity-75 shadow-outline hover:bg-opacity-75 p-3', {'hamburger-close': leftSidebar}]">
           <span class="w-6 h-1 bg-white block shadow shadow-brand-primary rounded-full"></span>
           <span class="w-6 h-1 bg-white block my-1 shadow  shadow-brand-primary rounded-full"></span>
           <span class="w-6 h-1 bg-white block shadow shadow-brand-primary rounded-full"></span>

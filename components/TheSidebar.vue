@@ -35,12 +35,15 @@
   <!-- Bottom section -->
   <section class="p-4">
     <!-- Navigation links -->
-    <ul class="my-4 text-base leading-normal font-medium">
+    <ul class="text-base leading-normal  font-head">
       <li class="mb-2">
         <n-link class="nav-link" :to="{name: 'dashboard-orders'}">My Orders</n-link>
       </li>
       <li class="mb-2">
-        <n-link class="nav-link" :to="{name: 'dashboard-landing'}">Create Virtual Restaurant</n-link>
+        <n-link class="nav-link" :to="{name: 'dashboard-landing'}">My Kitchen</n-link>
+      </li> 
+      <li class="mb-2">
+        <n-link class="nav-link" :to="{name: 'explorer'}">Explore</n-link>
       </li>
     </ul>
     <!-- End navigation links -->
@@ -101,9 +104,15 @@ authAction(){
   opacity: 1;
 }
 .nav-link{
+  @apply tracking-wide;
+  @apply font-medium;
   &.nuxt-link-exact-active{
     @apply font-semibold;
     @apply text-brand-primary
+  }
+  &:hover{
+    @apply font-bold;
+    @apply text-green-600;
   }
 }
 

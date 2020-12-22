@@ -7,7 +7,7 @@
       </header>
       <section class="text-center">
         <button @click="$auth.login()" class="block text-center rounded-full p-3 w-full hover:bg-brand-primary bg-green-600 font-head text-xl text-white">Sign Up</button>
-        <p class="text-sm mt-3">Already have an Account? <button class="text-green-600" @click="$auth.login()">Login</button></p>
+        <p class="text-sm mt-3 font-head font-medium tracking-wide">Already have an Account? <button class="font-semibold text-green-600" @click="$auth.login()">Login</button></p>
       </section>
     </section>
   </section>
