@@ -125,7 +125,7 @@
       <div
         class="flex container mx-auto flex-wrap justify-between mx-auto lg:py-24 py-12 static"
       >
-        <section class="lg:w-2/3 flex items-center flex-col ">
+        <section class="lg:w-2/3 flex items-center flex-col p-6">
           <div class="mx-auto my-12 lg:w-9/12 md:w-10/12">
             <header class="my-8">
               <span
