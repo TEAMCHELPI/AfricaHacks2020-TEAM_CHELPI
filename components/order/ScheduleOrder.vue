@@ -1,6 +1,6 @@
 <template>
 
-  <section class="w-full">
+  <section class="w-full" style="min-width: 300px">
     <form @submit.prevent="completeOrder" class="flex flex-col w-full">
       <label for="schedule-now"
              :class="['p-4 flex flex-grow w-full cursor-pointer hover:bg-gray-200 border-l-4 border-transparent', {'bg-gray-400 bg-opacity-25 border-brand-primary':scheduleType=='now'}]">

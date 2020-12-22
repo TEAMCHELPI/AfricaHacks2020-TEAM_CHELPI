@@ -1,12 +1,10 @@
 <template>
 
   <main>
-     <section class="p-4 absolute z-50 left-0 w-full top-0">
+     <section class="p-4 absolute z-20 left-0 w-full top-0">
       <the-navigation-bar :sidebar="$auth.loggedIn" />
     </section>
-    <div class="relative z-0">
       <Nuxt />
-    </div>
     <the-sidebar v-if="$auth.loggedIn"/>
     
     <!--  The Footer-->
@@ -14,7 +12,6 @@
 
     <!--    Modal-->
     <the-modal ref="modal">
-      <template #title>{{ modal.title }}</template>
       <template>
             <component
               :is="modal.component"

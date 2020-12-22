@@ -28,32 +28,32 @@
             id="schedule-delivery"
             name="schedule-delivery"
             class="form-select borderless text-gray-600 font-head border-none flex-auto m-0 focus:shadow-none">
-            <option value="">Schedule delivery type</option>
-            <option value="now">Now</option>
-            <option value="later">Later</option>
-          </select>
-        </label>
+              <option value="">Schedule delivery type</option>
+              <option value="now">Now</option>
+              <option value="later">Later</option>
+            </select>
+          </label>
 
-        <label class="" for="search-button">
-          <button id="search-button" class="py-3 text-white font-medium px-8 bg-brand-primary" type="submit">
-            Find Meals
-          </button>
-        </label>
-      </form>
+          <label class="" for="search-button">
+            <button id="search-button" class="py-3 text-white font-medium px-8 bg-brand-primary" type="submit">
+              Find Meals
+            </button>
+          </label>
+        </form>
+      </section>
     </section>
-  </section>
 
-  <section class="container mx-auto py-6 px-3">
+  <section class="container mx-auto py-6 px-3 relative z-0">
     <header class="flex flex-wrap justify-between w-full py-2">
       <!-- Meals nearby -->
       <section class="flex flex-auto mr-auto py-3 items-center space-x-3">
         <span class="font-head lg:text-xl text-right">Meals Nearby</span>
-        <span class="w-4 h-4 block bg-gray-300 rounded-full"></span>
+        <!-- <span class="chelpi-icon icon-angle-arrow-down"></span> -->
       </section>
 
       <!-- Meals picked -->
       <section class="flex text-right py-3 items-center space-x-3">
-        <span class="w-8 h-8 block bg-green-300 rounded-full"></span>
+        <span class="chelpi-icon icon-utencil text-green-600 icon-lg"></span>
         <span class="font-head lg:text-xl"> Meals picked</span>
         <span class="leading-none px-3 p-1 rounded-full text-xs bg-gray-500 bg-opacity-25">
         {{cart.total}}</span>
@@ -111,6 +111,7 @@ import MealMansonryGrid from '../components/MealMansonryGrid'
 export default {
   components: { MealMansonryGrid, TheNavigationBar, MealCard },
   name: 'Explorer',
+  layout: 'dashboard',
   data() {
     return {
       chefsNearby: [{}, {}, {}, {}, {}],

@@ -103,6 +103,7 @@
     },
     methods: {
       pickMeal(payload) {
+        // console.log({MealCard: payload})
         this.$eventBus.$emit('pickMeal', payload);
       },
       // Only authenticated users can see this

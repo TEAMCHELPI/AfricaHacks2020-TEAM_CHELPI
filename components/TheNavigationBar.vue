@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="relative">
     <div class="container mx-auto flex justify-between bg-transparent">
         <!-- Menu buttons -->
       <section class="flex items-center">

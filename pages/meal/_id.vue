@@ -1,13 +1,6 @@
 <template>
 
   <div>
-    <section class="relative z-10">
-      <section class="p-4 absolute z-20 left-0 w-full top-0">
-        <the-navigation-bar :sidebar="$auth.loggedIn" />
-      </section>
-      <nuxt/>
-    </section>
-
     <section class="meal-hero flex flex-col justify-end relative min-h-screen bg-gray-900" :style="{backgroundImage: `url(${banner})`}">
       <span class="bg-black z-0 opacity-75 absolute top-0 left-0 w-full h-full"></span>
       <section class="container px-3 mx-auto mt-auto flex space-x-6 z-10 mb-12">
@@ -16,7 +9,7 @@
         </section>
         <section>
           <header class="mb-2">
-            <h1 class="text-2xl text-white font-head font-medium">
+            <h1 class="lg:text-3xl leading-wide text-2xl text-white font-head font-medium">
               Chef Leint
             </h1>
             <section>
@@ -24,8 +17,8 @@
               <span></span>
             </section>
           </header>
-          <p class="text-gray-100 ">Meals at it best, get quality cooked, baked and grilled meals</p>
-          <small class="text-gray-200 font-light">Expected Meal Time Preparation: 10min - 20min</small>
+          <p class="text-gray-100 tracking-wide font-medium">Meals at it best, get quality cooked, baked and grilled meals</p>
+          <small class="text-gray-200 font-light ">Expected Meal Time Preparation: 10min - 20min</small>
         </section>
       </section>
     </section>
@@ -37,10 +30,10 @@
             <span class="chelpi-icon icon-angle-arrow-down"></span>
           </section>
           <section class="flex items-center space-x-2">
-            <button class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-400 text-white">
+            <button class="px-6 hover:bg-gray-600 py-1 bg-gray-400 text-white">
                                         Previous
                                       </button>
-            <button class="px-6 hover:bg-gray-600 py-1 rounded-full bg-gray-600 text-white">
+            <button class="px-6 hover:bg-gray-600 py-1 bg-gray-600 text-white">
                                         Next
                                       </button>
           </section>
@@ -64,20 +57,19 @@
       <section>
         <header class="flex px-3 my-3 flex-wrap justify-between items-center w-full">
           <section class="w-full block lg:hidden md:hidden">
-            <label for="meal-search-input" class="form-input  focus:shadow-outline my-3 rounded-full flex items-center bg-opacity-25 bg-gray-300">
+            <label for="meal-search-input" class="flex items-center space-x-3 form-input enclose">
               <span class="chelpi-icon icon-magnifying-glass text-gray-200"></span>
-              <input type="text" name="" id="meal-search-input" class="w-full ml-2 bg-transparent font-head capitalize form-input py-0 border-none focus:shadow-none " placeholder="search menu"/>
+              <input type="text" name="" id="meal-search-input" class="ml-2 font-head transparent capitalize form-input borderless" placeholder="search menu"/>
             </label>
           </section>
-          <section class="flex flex-wrap-reverse flex-auto mr-auto items-center lg:space-x-6">
-
+          <section class="flex flex-wrap-reverse flex-auto mr-auto items-baseline space-x-3">
             <div class="flex items-baseline space-x-3">
               <span class="font-head lg:text-2xl text-right text-gray-900">Menu</span>
               <span class="chelpi-icon icon-angle-arrow-down icon-xs"></span>
             </div>
-            <label for="meal-search-input" class="form-input hidden md:block lg:block focus:shadow-outline my-3 rounded-full flex items-center bg-opacity-25 bg-gray-300">
+            <label for="meal-search-input" id="desktop-search" class="lg:flex md:flex hidden items-center space-x-3 form-input enclose">
               <span class="chelpi-icon icon-magnifying-glass text-gray-200"></span>
-              <input type="text" name="" id="meal-search-input" class="ml-2 bg-transparent font-head capitalize form-input py-0 border-none focus:shadow-none " placeholder="search menu"/>
+              <input type="text" name="" id="meal-search-input" class="ml-2 font-head transparent capitalize form-input borderless" placeholder="search menu"/>
             </label>
           </section>
           <section class="flex items-center text-right  py-3 items-center space-x-3">
@@ -153,7 +145,9 @@
 
 </script>
 <style scoped>
-
+#desktop-search{
+  min-width: 300px;
+}
   .meal-hero {
     background-size: cover;
     background-repeat: no-repeat;

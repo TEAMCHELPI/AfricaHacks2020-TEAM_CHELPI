@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="relative">
 		<nuxt-child/>
 <!--    Modal-->
 		<the-modal ref="modal">
@@ -17,14 +17,13 @@
 <script> 
 import SignUp from '~/components/SignUp.vue'
 import TheModal from '~/components/TheModal'
-import TheSidebar from '~/components/TheSidebar'
 import CreateRestaurant from '~/components/restaurant/CreateRestaurant'
-import setupMeal from '~/components/restaurant/setupMeal';
-
+import SetupMeal from '~/components/restaurant/setupMeal';
+import ScheduleOrder from '~/components/order/ScheduleOrder';
 
 export default {
 	name: 'DashboardRouter',
-	components: { TheSidebar, SignUp, TheModal, CreateRestaurant, setupMeal },	
+	components: { SignUp, TheModal, CreateRestaurant, SetupMeal, ScheduleOrder },	
 	mounted() {
 		this.setupUserData();
 		this.$eventBus.$on('pickMeal', this.pickMeal)
@@ -89,7 +88,7 @@ export default {
       finishCreatingRestaurant(){
       	this.showCreationWizard = true;        
       },
-      pickMeal() {
+      pickMeal(payload) {
       	if (!this.$auth.loggedIn) this.revealModal('sign-up')
       		else {
           // add to cart
