@@ -23,6 +23,7 @@ import ScheduleOrder from '~/components/order/ScheduleOrder';
 
 export default {
 	name: 'DashboardRouter',
+	layout: 'clear',
 	components: { SignUp, TheModal, CreateRestaurant, SetupMeal, ScheduleOrder },	
 	mounted() {
 		this.setupUserData();

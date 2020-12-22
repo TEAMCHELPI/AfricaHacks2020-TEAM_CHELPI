@@ -1,6 +1,5 @@
 <template>
-
-  <section class="min-h-screen flex flex-col lg:p-6 p-3 lg:px-12 bg-gray-900 banner" :style="{backgroundImage: `url(${banner})`}" >
+  <section class="min-h-screen flex flex-col lg:p-6 p-3 lg:px-12 bg-gray-900 banner " :style="{backgroundImage: `url(${banner})`}" >
     <section class="flex justify-between items-center  flex-grow item-center h-full z-10">
 			<section class="lg:flex-1"></section>
 			<section class="lg:w-5/12 justify-between items-start bg-white bg-opacity-25 flex flex-col h-full  lg:p-12 p-8">
@@ -18,9 +17,7 @@
 				</button>
 			</section>
     </section>
-
   </section>
-
 </template>
 
 <script>
@@ -31,7 +28,7 @@
 				banner: '/images/sample/chefs/chef002.jpg'
 			}
 		},
-		layout: 'dashboard',
+		layout: 'clear',
 		methods:{
 			createRestaurant(){
 				this.$router.push('create-restaurant');

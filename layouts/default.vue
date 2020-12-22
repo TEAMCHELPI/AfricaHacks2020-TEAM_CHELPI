@@ -8,7 +8,7 @@
     <the-sidebar v-if="$auth.loggedIn"/>
     
     <!--  The Footer-->
-    <the-footer />
+    <the-footer ></the-footer>
 
     <!--    Modal-->
     <the-modal ref="modal">
