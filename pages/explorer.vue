@@ -111,7 +111,6 @@ import MealMansonryGrid from '../components/MealMansonryGrid'
 export default {
   components: { MealMansonryGrid, TheNavigationBar, MealCard },
   name: 'Explorer',
-  layout: 'dashboard',
   data() {
     return {
       chefsNearby: [{}, {}, {}, {}, {}],
